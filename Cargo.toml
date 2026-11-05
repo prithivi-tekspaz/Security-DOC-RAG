@@ -2,7 +2,7 @@
 name = "security-doc-rag"
 version = "0.1.0"
 edition = "2021"
-description = "Local security documentation agent built on Rig and Ollama"
+description = "Security DOC RAG: local security documentation agent built on Rig and Ollama"
 
 [dependencies]
 rig = { version = "0.44", features = ["derive", "pdf"] }

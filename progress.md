@@ -1,6 +1,6 @@
 # Progress: Optimised Release Build
 
-Make an optimised binary of the Security Doc RAG agent. Use Rig only. Do not change the tech stack.
+Make an optimised binary of the Security DOC RAG agent. Use Rig only. Do not change the tech stack.
 
 Writing rules (ASD-STE100): use short sentences. Use the active voice. Give one instruction in each step.
 Mark a step `[x]` only after you do the step and you verify it.
@@ -55,3 +55,9 @@ Mark a step `[x]` only after you do the step and you verify it.
 - [x] 6.2 Make sure Git ignores `target/`. (`git check-ignore` confirms it.)
 - [x] 6.3 Run `cargo build` and `cargo build --release` with no `CARGO_TARGET_DIR`.
 - [x] 6.4 Make sure the .exe files are in the project: `target/debug/security-doc-rag.exe` (21080064 bytes) and `target/release/security-doc-rag.exe` (6782464 bytes).
+
+## Phase 7: Project name
+
+- [x] 7.1 Use the name "Security DOC RAG" in the README title, the file tree and the tracker titles.
+- [x] 7.2 Use the name in the `Cargo.toml` description. The package name `security-doc-rag` and the .exe name do not change.
+- [x] 7.3 Keep the folder `bowfin`. Orca manages it and this session runs in it.

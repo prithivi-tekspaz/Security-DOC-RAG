@@ -1,4 +1,4 @@
-# Security Doc RAG
+# Security DOC RAG
 
 A local Rust agent that writes security documents. It uses the [Rig](https://github.com/0xPlaygrounds/rig) framework and [Ollama](https://ollama.com/).
 
@@ -92,7 +92,7 @@ Run the binary from the project folder. It reads `docs/` and writes `output/` th
 ./target/release/security-doc-rag threat-model "payment API"
 ```
 
-On Windows, use `target\release\security-doc-rag.exe`. On the author machine, `target/` is a Windows junction to `D:rgo-target-bowfin` because drive C: is small. Recreate it with `mklink /J target <folder>`, or delete it to use a normal folder.
+On Windows, use `target\release\security-doc-rag.exe`. On the author machine, `target/` is a Windows junction to ``D:/cargo-target-bowfin`` because drive C: is small. Recreate it with `mklink /J target <folder>`, or delete it to use a normal folder.
 
 ## Architecture
 
@@ -129,7 +129,7 @@ flowchart TD
 ## File structure
 
 ```text
-security-doc-rag/
+Security DOC RAG/
 ├── docs/                   # Your security PDFs
 │   └── *.pdf
 ├── output/                 # Generated documents (git-ignored)

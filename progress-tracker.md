@@ -1,4 +1,4 @@
-# Progress Tracker: Security Doc RAG
+# Progress Tracker: Security DOC RAG
 
 Build a local Rust agent. The agent writes security documents. Use the Rig framework only.
 Source of the plan: `SECURITY_DOC_RAG_PLAN.md`.
