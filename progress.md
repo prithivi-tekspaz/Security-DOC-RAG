@@ -48,7 +48,7 @@ Mark a step `[x]` only after you do the step and you verify it.
 - [x] 5.1 Run `cargo test`. Make sure all 15 tests pass.
 - [x] 5.2 Run `cargo clippy --all-targets`. Make sure it has no warning.
 - [x] 5.3 Run the `.exe` with no argument. Make sure it lists the document types and exits with code 2.
-- [x] 5.4 Run `targeteleasesecurity-doc-rag.exe hardening-checklist "layout check"` from the project root. (Done.)
+- [x] 5.4 Run `target/release/security-doc-rag.exe hardening-checklist "layout check"` from the project root. (Done.)
 - [x] 5.5 Make sure the run creates `output/hardening-checklist-layout-check.md` with all six sections.
 
 ## Phase 6: Finish

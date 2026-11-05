@@ -92,7 +92,7 @@ Run the binary from the project folder. It reads `docs/` and writes `output/` th
 ./target/release/security-doc-rag threat-model "payment API"
 ```
 
-On Windows, use `target\release\security-doc-rag.exe`. The debug binary is `targetdebugsecurity-doc-rag.exe`.
+On Windows, use `target\release\security-doc-rag.exe`. The debug binary is `target/debug/security-doc-rag.exe`.
 
 ## Architecture
 
