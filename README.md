@@ -51,6 +51,22 @@ Saved output/threat-model-payment-api.md
 
 If you give a wrong document type, the agent lists the valid types.
 
+### Ask for a specific document
+
+Add your own instructions with `--instructions`. The agent puts them in the prompt of every section.
+
+```sh
+cargo run -- hardening-checklist "PostgreSQL 16" --instructions "Target CIS level 2. Write short bullet items only."
+```
+
+Or write a plain request with `ask`. The agent picks the document type from words in your request. It looks for: `threat model`, `harden`, `secure coding` or `coding guideline`, `incident`, `runbook` or `playbook`, and `vulnerab` or `remediation`.
+
+```sh
+cargo run -- ask "Write a threat model for a payment API that stores card tokens. Focus on PCI-DSS."
+```
+
+If the agent cannot find a document type in your request, it lists the valid types and exits with code 2. Use the first form in that case.
+
 ### Document types
 
 | Key | Document |

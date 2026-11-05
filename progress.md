@@ -69,3 +69,16 @@ Mark a step `[x]` only after you do the step and you verify it.
 - [x] The debug and the release `.exe` are inside `target/`.
 - [x] Rig is the only LLM framework in `Cargo.toml`.
 - [x] The binary creates a complete Markdown document.
+
+## Phase 7: Ask for a specific document
+
+- [x] 7.1 Add the `--instructions "<text>"` flag. The agent puts the text in the prompt of every section.
+- [x] 7.2 Show the instructions in the document header.
+- [x] 7.3 Add the `ask "<request>"` mode. The agent picks the document type from words in the request.
+- [x] 7.4 Exit with code 2 and show the usage text when the request has no document type.
+- [x] 7.5 Limit the file name slug to 60 characters.
+- [x] 7.6 Add unit tests for argument parsing, type detection and the prompt. `cargo test` shows 20 passed.
+- [x] 7.7 Run `cargo clippy --all-targets`. No warning.
+- [x] 7.8 Run `ask "Write a threat model for a payment API that stores card tokens. Focus on PCI-DSS."` on the real model. The file has 6 sections. It mentions PCI 26 times.
+- [x] 7.9 Run `hardening-checklist "PostgreSQL 16" --instructions "Target CIS level 2. Write short bullet items only."` on the real model. The file has 6 sections, 50 bullet lines and the instructions in the header.
+- [x] 7.10 Update `README.md` with both modes.
