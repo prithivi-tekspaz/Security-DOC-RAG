@@ -48,3 +48,10 @@ Mark a step `[x]` only after you do the step and you verify it.
 - [x] The release binary is smaller than the debug binary. (6.5 MiB against 20.1 MiB.)
 - [x] Rig is the only LLM framework.
 - [x] The binary creates a complete Markdown document.
+
+## Phase 6: Match the layout of the other project
+
+- [x] 6.1 Make `target/` a directory junction to `D:\cargo-target-bowfin`. (Drive C: has little free space.)
+- [x] 6.2 Make sure Git ignores `target/`. (`git check-ignore` confirms it.)
+- [x] 6.3 Run `cargo build` and `cargo build --release` with no `CARGO_TARGET_DIR`.
+- [x] 6.4 Make sure the .exe files are in the project: `target/debug/security-doc-rag.exe` (21080064 bytes) and `target/release/security-doc-rag.exe` (6782464 bytes).
