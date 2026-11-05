@@ -76,6 +76,24 @@ Example:
 COMPLETION_MODEL=my-model:latest cargo run -- hardening-checklist "Linux web server"
 ```
 
+## Release build
+
+Build the optimised binary:
+
+```bash
+cargo build --release
+```
+
+The release profile uses `opt-level = 3`, fat LTO, one codegen unit, `panic = "abort"` and `strip = true`. The binary is about 6.5 MiB. The debug binary is about 20 MiB.
+
+Run the binary from the project folder. It reads `docs/` and writes `output/` there.
+
+```bash
+./target/release/security-doc-rag threat-model "payment API"
+```
+
+On Windows, use `target\release\security-doc-rag.exe`. If you set `CARGO_TARGET_DIR`, the binary is in that folder instead.
+
 ## Architecture
 
 ```mermaid
