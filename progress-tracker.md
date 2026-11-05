@@ -72,7 +72,7 @@ Owner key: **LEAD** = main session. **A** = sections agent. **B** = main.rs agen
 - [x] 6.4 Run `cargo test`. Make sure all tests pass. (B)
 - [x] 6.5 Run `cargo clippy`. Make sure it has no warning. (B)
 - [x] 6.6 Write `README.md` with setup, run steps and the review note. (C)
-- [ ] 6.7 Generate each of the five types for two topics. (Done: all five types, one topic each. Threat model has two topics. Do the second topic for four types.) (USER)
+- [x] 6.7 Generate each of the five types for two topics. (Done: ten documents. Each type has two topics.) (USER)
 - [x] 6.8 Tune the preamble. It now forbids a repeated section heading and unknown links. Keep chunk size 2000, top-N 3 and temperature 0.35. (USER)
 
 ## Acceptance
