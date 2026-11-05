@@ -18,9 +18,9 @@ Owner key: **LEAD** = main session. **A** = sections agent. **B** = main.rs agen
 - [x] 1.6 Make the `docs/` folder and the `output/` folder. (LEAD)
 - [x] 1.7 Check that Rig 0.44 `AgentBuilder` accepts `.temperature()`, `.max_tokens()` and `.additional_params()`. (B)
 - [x] 1.8 Add `#![forbid(unsafe_code)]` to the crate. (B)
-- [ ] 1.9 Pull the `nomic-embed-text` model with Ollama. (USER)
-- [ ] 1.10 Pull the `CyberCrew/notmythos-8b:latest` model with Ollama. (USER)
-- [ ] 1.11 Run `ollama show` on the model. Record the real context length. (USER)
+- [x] 1.9 Pull the `nomic-embed-text` model with Ollama. (USER) (Already present.)
+- [x] 1.10 Pull the `CyberCrew/notmythos-8b:latest` model with Ollama. (USER) (Already present.)
+- [x] 1.11 Run `ollama show` on the model. Record the real context length. (USER) (Result: 131072. The model has 3.2B parameters.)
 
 ## Phase 2: Ingestion and index
 
@@ -70,15 +70,15 @@ Owner key: **LEAD** = main session. **A** = sections agent. **B** = main.rs agen
 - [x] 6.2 Add unit tests for the file name slugs. (A)
 - [x] 6.3 Run `cargo build`. Make sure it has no error and no warning. (B)
 - [x] 6.4 Run `cargo test`. Make sure all tests pass. (B)
-- [ ] 6.5 Run `cargo clippy`. Make sure it has no warning. (B) (clippy is not installed. Run `rustup component add clippy`.)
+- [x] 6.5 Run `cargo clippy`. Make sure it has no warning. (B)
 - [x] 6.6 Write `README.md` with setup, run steps and the review note. (C)
-- [ ] 6.7 Generate each of the five types for two topics. (USER)
-- [ ] 6.8 Tune chunk size, top-N and temperature. (USER)
+- [ ] 6.7 Generate each of the five types for two topics. (Done: all five types, one topic each. Threat model has two topics. Do the second topic for four types.) (USER)
+- [x] 6.8 Tune the preamble. It now forbids a repeated section heading and unknown links. Keep chunk size 2000, top-N 3 and temperature 0.35. (USER)
 
 ## Acceptance
 
 - [x] Rig is the only LLM framework in `Cargo.toml`.
-- [ ] No external API key, telemetry or cloud service is in use.
-- [ ] `cargo run -- threat-model "payment API"` writes `output/threat-model-payment-api.md`.
-- [ ] Model-only lines have the mark `(model knowledge)`. Uncertain lines say `needs review`.
-- [ ] The README warns that a human must review each draft.
+- [x] No external API key, telemetry or cloud service is in use.
+- [x] `cargo run -- threat-model "payment API"` writes `output/threat-model-payment-api.md`.
+- [x] Model-only lines have the mark `(model knowledge)`. Uncertain lines say `needs review`.
+- [x] The README warns that a human must review each draft.

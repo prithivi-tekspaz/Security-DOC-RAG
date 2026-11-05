@@ -19,7 +19,7 @@ use std::path::Path;
 const PREAMBLE: &str = "You are a security documentation writer. Write for engineers, in Markdown. \
 Use the retrieved context first. Fill gaps from your own knowledge and mark those lines `(model knowledge)`. \
 Never invent CVE IDs, versions or commands. Write `needs review` when you are unsure. \
-Output only the body of the requested section, without a top-level title.";
+Output only the body of the requested section. Do not repeat the section title as a heading. Use ### for sub-headings. Do not link to documents that you were not given.";
 
 #[derive(Embed, Clone, Debug, Serialize, Deserialize, Eq, PartialEq)]
 struct Document {
