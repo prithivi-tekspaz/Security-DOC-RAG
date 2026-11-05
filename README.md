@@ -92,7 +92,7 @@ Run the binary from the project folder. It reads `docs/` and writes `output/` th
 ./target/release/security-doc-rag threat-model "payment API"
 ```
 
-On Windows, use `target\release\security-doc-rag.exe`. On the author machine, `target/` is a Windows junction to `D:/cargo-target-bowfin` because drive C: is small. Recreate it with `mklink /J target <folder>`, or delete it to use a normal folder.
+On Windows, use `target\release\security-doc-rag.exe`. The debug binary is `targetdebugsecurity-doc-rag.exe`.
 
 ## Architecture
 

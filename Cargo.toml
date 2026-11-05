@@ -2,7 +2,11 @@
 name = "security-doc-rag"
 version = "0.1.0"
 edition = "2021"
+publish = false
 description = "Security DOC RAG: local security documentation agent built on Rig and Ollama"
+
+[lints.rust]
+unsafe_code = "forbid"
 
 [dependencies]
 rig = { version = "0.44", features = ["derive", "pdf"] }

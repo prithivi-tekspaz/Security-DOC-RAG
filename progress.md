@@ -1,63 +1,71 @@
-# Progress: Optimised Release Build
+# Progress: Security DOC RAG Build and Layout
 
-Make an optimised binary of the Security DOC RAG agent. Use Rig only. Do not change the tech stack.
+Build the Security DOC RAG agent in the same way as the reference project `D:\Git\security-rag`. Use Rig only. Do not change the tech stack.
 
 Writing rules (ASD-STE100): use short sentences. Use the active voice. Give one instruction in each step.
 Mark a step `[x]` only after you do the step and you verify it.
 
-## Phase 1: Before you change anything
+## Phase 1: Study the reference project
 
-- [x] 1.1 Check that the git tree is clean. (Last commit `5323bc5` was clean. Only `Cargo.toml` and `progress.md` have changes now.)
-- [x] 1.2 Record the debug binary size. (21080064 bytes, about 20.1 MiB.)
-- [x] 1.3 Record the dependency list. Make sure `rig`, `anyhow`, `serde` and `tokio` are the only direct dependencies. (Verified in `Cargo.toml`.)
+- [x] 1.1 Open `D:\Git\security-rag`. Read the file list. (Read-only. No file changed.)
+- [x] 1.2 Note that `target/` is a real folder inside the project. It holds `CACHEDIR.TAG` and `debug/`. It is 1.5 GB.
+- [x] 1.3 Note that `target/debug/` holds `build`, `deps`, `examples`, `incremental`, the `.d` file, the `.exe` and the `.pdb`.
+- [x] 1.4 Note that the project is on drive D:, not on drive C:.
+- [x] 1.5 Note that `.gitignore` has the line `/target`.
+- [x] 1.6 Note that `Cargo.toml` has `publish = false` and `[lints.rust] unsafe_code = "forbid"`.
+- [x] 1.7 Note the dependencies: `rig` 0.44 (`derive`, `pdf`), `anyhow`, `serde`, `tokio`. This project has the same dependencies.
 
-## Phase 2: Release profile
+## Phase 2: Place the project
 
-- [x] 2.1 Add `[profile.release]` to `Cargo.toml`.
-- [x] 2.2 Set `opt-level = 3`.
-- [x] 2.3 Set `lto = "fat"`.
-- [x] 2.4 Set `codegen-units = 1`.
-- [x] 2.5 Set `panic = "abort"`.
-- [x] 2.6 Set `strip = true`.
-- [x] 2.7 Do not add a new dependency.
+- [x] 2.1 Find the project folder. It is `D:\Git\Security Doc RAG`. This folder is the main repository of the `bowfin` worktree.
+- [x] 2.2 Make sure the folder is on drive D:. Drive D: has 39 GB free.
+- [x] 2.3 Fast-forward `master` to the finished work. (Commit `45415c3`.)
+- [x] 2.4 Make sure the folder holds `src/main.rs`, `src/sections.rs`, `Cargo.toml`, `Cargo.lock`, `README.md`, `docs/`, `progress-tracker.md` and the plan.
+- [x] 2.5 Copy the ten generated documents into `output/`.
+- [x] 2.6 Make sure no junction is in use. `target/` must be a real folder.
 
-## Phase 3: Build
+## Phase 3: Match the reference conventions
 
-- [x] 3.1 Run `cargo build --release`.
-- [x] 3.2 Make sure the build has no error and no warning. (No warning in the output.)
-- [x] 3.3 Record the release binary size. (6782464 bytes, about 6.5 MiB. Build time 5 min 38 s.)
-- [x] 3.4 Run `cargo test --release`. Make sure all tests pass. (15 passed.)
-- [x] 3.5 Run `cargo clippy --release`. Make sure it has no warning.
+- [x] 3.1 Change `.gitignore` to the form `/target` and `/output`.
+- [x] 3.2 Add `publish = false` to `Cargo.toml`.
+- [x] 3.3 Add `[lints.rust] unsafe_code = "forbid"` to `Cargo.toml`. Keep `#![forbid(unsafe_code)]` in `src/main.rs`.
+- [x] 3.4 Keep `[profile.release]` in `Cargo.toml`. (The reference project has no release profile.)
+- [x] 3.5 Keep the package name `security-doc-rag`. The `.exe` name stays `security-doc-rag.exe`.
+- [x] 3.6 Make sure `Cargo.toml` has no new dependency.
 
-## Phase 4: Test the binary
+## Phase 4: Build inside the project
 
-- [x] 4.1 Run the binary with no argument. Make sure it lists the document types and exits with code 2. (Exit code 2.)
-- [x] 4.2 Run the binary with a wrong document type. Make sure it exits with code 2. (Exit code 2.)
-- [x] 4.3 Run the binary with `hardening-checklist "release build check"`. (Ran `security-doc-rag.exe` directly.)
-- [x] 4.4 Make sure the binary creates `output/hardening-checklist-release-build-check.md`. (10715 bytes.)
-- [x] 4.5 Make sure the file has all sections of the document type. (6 of 6 sections.)
+- [x] 4.1 Run `cargo build` in `D:\Git\Security DOC RAG`. Do not set `CARGO_TARGET_DIR`.
+- [x] 4.2 Make sure `target/debug/security-doc-rag.exe` exists.
+- [x] 4.3 Make sure `target/debug/` has `build`, `deps`, `examples`, `incremental`, the `.d` file and the `.pdb`.
+- [x] 4.4 Run `cargo build --release`.
+- [x] 4.5 Make sure `target/release/security-doc-rag.exe` exists.
+- [x] 4.6 Make sure the build has no error and no warning.
+- [x] 4.7 Record the size of each `.exe`. (Debug 21080064 bytes, about 20 MiB. Release 6782464 bytes, about 6.5 MiB. `target/` is 2.3 GB.)
 
-## Phase 5: Finish
+## Phase 5: Test
 
-- [x] 5.1 Make sure `Cargo.toml` has no new dependency. (Rig, anyhow, serde and tokio only.)
-- [x] 5.2 Update `README.md` with the release build command and the binary path.
-- [x] 5.3 Make a git commit.
+- [x] 5.1 Run `cargo test`. Make sure all 15 tests pass.
+- [x] 5.2 Run `cargo clippy --all-targets`. Make sure it has no warning.
+- [x] 5.3 Run the `.exe` with no argument. Make sure it lists the document types and exits with code 2.
+- [x] 5.4 Run `targeteleasesecurity-doc-rag.exe hardening-checklist "layout check"` from the project root. (Done.)
+- [x] 5.5 Make sure the run creates `output/hardening-checklist-layout-check.md` with all six sections.
+
+## Phase 6: Finish
+
+- [x] 6.1 Update `README.md`. Remove the junction note. Show the real `target/` paths.
+- [x] 6.2 Make a git commit on `master`.
+- [x] 6.3 Make sure `git status` shows no untracked file except ignored folders.
+
+## Earlier work (done)
+
+- [x] E.1 Build the Rig agent: ingestion, `sections.rs`, agent, CLI and output. (See `progress-tracker.md`.)
+- [x] E.2 Generate each of the five document types for two topics.
+- [x] E.3 Add the optimised `[profile.release]`: `opt-level = 3`, fat LTO, one codegen unit, `panic = "abort"`, `strip = true`.
 
 ## Acceptance
 
-- [x] The release binary is smaller than the debug binary. (6.5 MiB against 20.1 MiB.)
-- [x] Rig is the only LLM framework.
+- [x] `target/` is a real folder inside `D:\Git\Security DOC RAG`.
+- [x] The debug and the release `.exe` are inside `target/`.
+- [x] Rig is the only LLM framework in `Cargo.toml`.
 - [x] The binary creates a complete Markdown document.
-
-## Phase 6: Match the layout of the other project
-
-- [x] 6.1 Make `target/` a directory junction to `D:\cargo-target-bowfin`. (Drive C: has little free space.)
-- [x] 6.2 Make sure Git ignores `target/`. (`git check-ignore` confirms it.)
-- [x] 6.3 Run `cargo build` and `cargo build --release` with no `CARGO_TARGET_DIR`.
-- [x] 6.4 Make sure the .exe files are in the project: `target/debug/security-doc-rag.exe` (21080064 bytes) and `target/release/security-doc-rag.exe` (6782464 bytes).
-
-## Phase 7: Project name
-
-- [x] 7.1 Use the name "Security DOC RAG" in the README title, the file tree and the tracker titles.
-- [x] 7.2 Use the name in the `Cargo.toml` description. The package name `security-doc-rag` and the .exe name do not change.
-- [x] 7.3 Keep the folder `bowfin`. Orca manages it and this session runs in it.
